@@ -1,12 +1,25 @@
 <template>
-  <div class="splashscreen">
+  <div :class="{ hiden: !isVisible, splashscreen: isVisible }">
     <img src="@/assets/cash-flow-app-icon.svg" alt="CashFlow Logo" />
     <h1><span>Cash</span>Flow</h1>
-    <a class="get-started">Get Started</a>
+    <a class="get-started" @click="hideComponent()">Get Started</a>
   </div>
 </template>
 
+<script setup>
+import { ref } from 'vue'
+
+const isVisible = ref(true)
+
+const hideComponent = () => {
+  isVisible.value = !isVisible.value
+}
+</script>
+
 <style scoped>
+.hiden {
+  display: none;
+}
 .splashscreen {
   display: flex;
   justify-content: center;
@@ -17,7 +30,6 @@
   margin-top: 0px;
   opacity: 1;
 }
-
 @keyframes lazy-loading {
   0% {
     margin-top: 100px;

@@ -1,7 +1,14 @@
 <template>
-  <div>Hello World</div>
+  <LayoutComponent>
+    <template #header>
+      <HeaderComponent />
+    </template>
+  </LayoutComponent>
 </template>
 
-<script setup></script>
+<script setup>
+import LayoutComponent from './LayoutComponent.vue'
+import HeaderComponent from './HeaderComponent.vue'
+</script>
 
 <style scoped></style>

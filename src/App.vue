@@ -1,24 +1,11 @@
 <template>
-  <SplashScreen />
-  <HomePage />
+  <SplashScreen></SplashScreen>
+  <HomePage></HomePage>
 </template>
 
-<script>
-import HomePage from '@/components/HomePage.vue'
-import { defineAsyncComponent } from 'vue'
-export default {
-  components: {
-    HomePage,
-    SplashScreen: defineAsyncComponent(
-      () =>
-        new Promise((resolve) => {
-          setTimeout(() => {
-            resolve(import('./components/SplashScreen.vue'))
-          }, 1000)
-        })
-    )
-  }
-}
+<script setup>
+import HomePage from './components/HomePage.vue'
+import SplashScreen from './components/SplashScreen.vue'
 </script>
 
 <style>
@@ -28,6 +15,7 @@ body,
   min-height: 100vh;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 
 * {
